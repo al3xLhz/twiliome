@@ -74,10 +74,12 @@ def enviar_sms(mensaje: str, to_number: str) -> None:
     try:
         client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
         message = client.messages.create(
-            body=mensaje,
-            from_=PHONE_NUMBER,
-            to=to_number
+            from_='whatsapp:+14155238886',
+            content_sid='HXb5b62575e6e4ff6129ad7c8efe1f983e',
+            content_variables='{"1":"12/1","2":"3pm"}',
+            to='whatsapp:+51923046453'
         )
+   
         print('Mensaje Enviado:', message.sid)
     except Exception as e:
         print(f"Error al enviar el mensaje: {e}")
